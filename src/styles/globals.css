@@ -18,8 +18,6 @@
   color: hsla(30.96774194,79.48717949%,92.35294118%,1);
   background-color: #fa5537;
   transition: color 0.7s, background-color 0.7s;
-
-  border: 1px solid;
   padding: 10px;
   border-radius: 35px;
   font-size: 14px;

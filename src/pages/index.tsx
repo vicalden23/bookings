@@ -39,7 +39,7 @@ function Button({ label, marginTop }: { label: string; marginTop?: string }) {
 }
 
 export default function Home() {
-  const isMobile = useMediaQuery('(max-width:600px)');
+  const isMobile = useMediaQuery('(max-width:768px)');
   return (
     <div>
       <main
@@ -137,7 +137,6 @@ export default function Home() {
                     About Me
                   </p>
                   <Text
-                    // size="16px"
                     str={`My name is Victoria Alden and I specialize in helping individuals manage 
                       their financial risks, ensuring they are prepared 
                       for any uncertainties that life may bring. With a focus on 
