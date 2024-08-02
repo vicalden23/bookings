@@ -2,40 +2,30 @@
 @tailwind components;
 @tailwind utilities;
 
-/* :root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
+.book-now-button {
+  color: #fa5537;; /* Replace with your default color */
+  background-color: hsla(30.96774194,79.48717949%,92.35294118%,1); /* Replace with your default background color */
+  transition: color 0.7s, background-color 0.7s;
 }
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
-  }
-}
-
-body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
-}
-
-@layer utilities {
-  .text-balance {
-    text-wrap: balance;
-  }
-} */
 
 .book-now-button:hover {
-  color: 'hsla(30.96774194,79.48717949%,92.35294118%,1) !important';
+  color: hsla(30.96774194,79.48717949%,92.35294118%,1);
   background-color: #fa5537;
   transition: 0.7s;
 }
 
+.book-now-button-sticky {
+  color: hsla(30.96774194,79.48717949%,92.35294118%,1);
+  background-color: #fa5537;
+  transition: color 0.7s, background-color 0.7s;
 
+  border: 1px solid;
+  padding: 10px;
+  border-radius: 35px;
+  font-size: 14px;
+  width: 150px;
+  letter-spacing: 0.5px;
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+}
