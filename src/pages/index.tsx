@@ -19,7 +19,15 @@ function Text({ str, opt }: { str: string; opt?: {} }) {
   return <p style={{ ...styles, ...opt }}>{str}</p>;
 }
 
-function Button({ label, marginTop }: { label: string; marginTop?: string }) {
+function Button({
+  label,
+  marginTop,
+  handleOpenCalendar,
+}: {
+  label: string;
+  marginTop?: string;
+  handleOpenCalendar: () => void;
+}) {
   return (
     <button
       className="book-now-button"
@@ -32,6 +40,7 @@ function Button({ label, marginTop }: { label: string; marginTop?: string }) {
         letterSpacing: '0.5px',
         ...(marginTop && { marginTop: marginTop }),
       }}
+      onClick={handleOpenCalendar}
     >
       {label}
     </button>
@@ -40,6 +49,11 @@ function Button({ label, marginTop }: { label: string; marginTop?: string }) {
 
 export default function Home() {
   const isMobile = useMediaQuery('(max-width:768px)');
+
+  const handleOpenCalendar = () => {
+    window.location.href = 'https://calendly.com/valden-wilshiregfs/30min';
+  };
+
   return (
     <div>
       <main
@@ -75,7 +89,10 @@ export default function Home() {
                       color: '#fa5537',
                     }}
                   >
-                    <Button label="BOOK AN APPOINTMENT" />
+                    <Button
+                      handleOpenCalendar={handleOpenCalendar}
+                      label="BOOK AN APPOINTMENT"
+                    />
                   </div>
                 </Grid>
               </Grid>
@@ -83,7 +100,6 @@ export default function Home() {
               <Grid container spacing={2}>
                 <Grid item xs={7}>
                   <Image
-                    // src="/headshot-victoria.jpg"
                     src="/family-portrait.png"
                     alt="family"
                     width={800}
@@ -114,7 +130,10 @@ export default function Home() {
                       str={'Critical Illness Insurance'}
                       opt={{ marginBottom: '15%' }}
                     />
-                    <Button label="LEARN MORE" />
+                    <Button
+                      handleOpenCalendar={handleOpenCalendar}
+                      label="LEARN MORE"
+                    />
                   </div>
                 </Grid>
               </Grid>
@@ -147,7 +166,11 @@ export default function Home() {
                       future.
                     `}
                   />
-                  <Button label="WORK WITH ME" marginTop="20px" />
+                  <Button
+                    handleOpenCalendar={handleOpenCalendar}
+                    label="WORK WITH ME"
+                    marginTop="20px"
+                  />
                 </Grid>
                 <Grid item xs={5}>
                   <Image
