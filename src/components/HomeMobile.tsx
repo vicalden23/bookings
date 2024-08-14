@@ -1,18 +1,17 @@
 import Image from 'next/image';
 import { Container } from '@mui/material';
 import { Anton } from 'next/font/google';
+import { vicCalendly } from './Shared';
 
 const anton = Anton({ subsets: ['latin'], weight: '400' });
 
-const styles = {
+const fontStyles = {
   fontSize: '23px',
   fontWeight: '300',
 };
 
-function Text({ str, size, opt }: { str: string; size?: string; opt?: {} }) {
-  return (
-    <p style={{ ...styles, ...opt, ...(size && { fontSize: size }) }}>{str}</p>
-  );
+function Text({ str, styles }: { str: string; styles?: {} }) {
+  return <p style={{ ...fontStyles, ...styles }}>{str}</p>;
 }
 
 function StickyButton({
@@ -29,9 +28,9 @@ function StickyButton({
   );
 }
 
-export default function HomeMobile() {
+export default function HomeMobile({ headshotPath }: { headshotPath: string }) {
   const handleOpenCalendar = () => {
-    window.location.href = 'https://calendly.com/valden-wilshiregfs/30min';
+    window.location.href = vicCalendly;
   };
 
   return (
@@ -74,7 +73,7 @@ export default function HomeMobile() {
         <Text str={'Disability Insurance'} />
         <Text
           str={'Critical Illness Insurance'}
-          opt={{ marginBottom: '10%' }}
+          styles={{ marginBottom: '10%' }}
         />
         <StickyButton
           label="BOOK AN APPOINTMENT"
@@ -95,7 +94,7 @@ export default function HomeMobile() {
       </p>
 
       <Text
-        size="16px"
+        styles={{ fontSize: 16 }}
         str={`My name is Victoria Alden and I specialize in helping individuals manage 
             their financial risks, ensuring they are prepared 
             for any uncertainties that life may bring. With a focus on 
@@ -107,7 +106,7 @@ export default function HomeMobile() {
       />
 
       <Image
-        src="/headshot-victoria.jpg"
+        src={`${headshotPath}`}
         alt="family"
         width={200}
         height={400}
