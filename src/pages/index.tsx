@@ -43,7 +43,7 @@ export default function Home() {
       >
         <Container style={{ maxWidth: '1200px' }}>
           {isMobile ? (
-            <HomeMobile headshotUrl="/headshot-victoria.jpg" />
+            <HomeMobile headshotPath="/headshot-victoria.jpg" />
           ) : (
             <>
               <Grid container spacing={2} style={{ marginBottom: 30 }}>

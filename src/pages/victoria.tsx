@@ -2,6 +2,7 @@ import { Container } from '@mui/material';
 import useMediaQuery from '@mui/material/useMediaQuery';
 import { oswald, vicCalendly } from '@/components/Shared';
 import IndividualPageMobile from '@/components/IndividualPageMobile';
+import IndividualPage from '@/components/IndividualPage';
 
 export default function Victoria() {
   const isMobile = useMediaQuery('(max-width:768px)');
@@ -24,7 +25,7 @@ export default function Victoria() {
               agentName="Victoria Alden"
             />
           ) : (
-            <IndividualPageMobile
+            <IndividualPage
               headshotPath="/headshot-victoria.jpg"
               calendarLink={vicCalendly}
               agentName="Victoria Alden"

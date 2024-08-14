@@ -1,10 +1,7 @@
 import Image from 'next/image';
 import Grid from '@mui/material/Grid';
 import { Container } from '@mui/material';
-import useMediaQuery from '@mui/material/useMediaQuery';
 import { Oswald, Anton, Playfair_Display } from 'next/font/google';
-
-import HomeMobile from '@/components/HomeMobile';
 
 const oswald = Oswald({ subsets: ['latin'] });
 const anton = Anton({ subsets: ['latin'], weight: '400' });
@@ -56,8 +53,6 @@ export default function IndividualPage({
   agentName: string;
   calendarLink: string;
 }) {
-  const isMobile = useMediaQuery('(max-width:768px)');
-
   const handleOpenCalendar = () => {
     window.location.href = calendarLink;
   };

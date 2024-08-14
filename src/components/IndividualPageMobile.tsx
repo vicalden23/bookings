@@ -1,6 +1,5 @@
 import Image from 'next/image';
 import { Container } from '@mui/material';
-
 import { anton, StickyButton, Text } from '@/components/Shared';
 
 export default function HomeMobile({
