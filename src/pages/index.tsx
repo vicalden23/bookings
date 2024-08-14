@@ -2,56 +2,33 @@ import Image from 'next/image';
 import Grid from '@mui/material/Grid';
 import { Container } from '@mui/material';
 import useMediaQuery from '@mui/material/useMediaQuery';
-import { Oswald, Anton, Playfair_Display } from 'next/font/google';
-
+import {
+  oswald,
+  anton,
+  Text,
+  Button,
+  ImageSquare,
+  vicCalendly,
+  briCalendly,
+} from '@/components/Shared';
 import HomeMobile from '@/components/HomeMobile';
-
-const oswald = Oswald({ subsets: ['latin'] });
-const anton = Anton({ subsets: ['latin'], weight: '400' });
-const palyfair = Playfair_Display({ subsets: ['latin'], weight: '600' });
-
-const styles = {
-  fontSize: '23px',
-  fontWeight: '300',
-};
-
-function Text({ str, opt }: { str: string; opt?: {} }) {
-  return <p style={{ ...styles, ...opt }}>{str}</p>;
-}
-
-function Button({
-  label,
-  marginTop,
-  handleOpenCalendar,
-}: {
-  label: string;
-  marginTop?: string;
-  handleOpenCalendar: () => void;
-}) {
-  return (
-    <button
-      className="book-now-button"
-      style={{
-        border: '1px solid',
-        padding: '10px',
-        borderRadius: '35px',
-        fontSize: '14px',
-        width: '200px',
-        letterSpacing: '0.5px',
-        ...(marginTop && { marginTop: marginTop }),
-      }}
-      onClick={handleOpenCalendar}
-    >
-      {label}
-    </button>
-  );
-}
 
 export default function Home() {
   const isMobile = useMediaQuery('(max-width:768px)');
 
-  const handleOpenCalendar = () => {
-    window.location.href = 'https://calendly.com/valden-wilshiregfs/30min';
+  const handleOpenVicCalendar = () => {
+    window.location.href = vicCalendly;
+  };
+
+  const handleOpenBriCalendar = () => {
+    window.location.href = briCalendly;
+  };
+
+  const handleScrollToBottom = () => {
+    window.scrollTo({
+      top: document.body.scrollHeight,
+      behavior: 'smooth',
+    });
   };
 
   return (
@@ -66,7 +43,7 @@ export default function Home() {
       >
         <Container style={{ maxWidth: '1200px' }}>
           {isMobile ? (
-            <HomeMobile />
+            <HomeMobile headshotUrl="/headshot-victoria.jpg" />
           ) : (
             <>
               <Grid container spacing={2} style={{ marginBottom: 30 }}>
@@ -90,7 +67,7 @@ export default function Home() {
                     }}
                   >
                     <Button
-                      handleOpenCalendar={handleOpenCalendar}
+                      handleOpenCalendar={handleScrollToBottom}
                       label="BOOK AN APPOINTMENT"
                     />
                   </div>
@@ -128,58 +105,62 @@ export default function Home() {
                     <Text str={'Disability Insurance'} />
                     <Text
                       str={'Critical Illness Insurance'}
-                      opt={{ marginBottom: '15%' }}
+                      styles={{ marginBottom: '15%' }}
                     />
                     <Button
-                      handleOpenCalendar={handleOpenCalendar}
+                      handleOpenCalendar={handleScrollToBottom}
                       label="LEARN MORE"
                     />
                   </div>
                 </Grid>
               </Grid>
 
+              <p
+                className={`${anton.className}`}
+                style={{
+                  fontSize: '35px',
+                  lineHeight: '60px',
+                  marginBottom: '10px',
+                  marginTop: 13,
+                }}
+              >
+                About Us
+              </p>
+              <Text
+                str={`We specialize in helping individuals manage 
+                  their financial risks, ensuring they are prepared 
+                  for any uncertainties that life may bring. With a focus on 
+                  creating secure and steady income streams, we aim to provide 
+                  peace of mind and financial stability for our clients.
+                  Whether it's through strategic planning or personalized 
+                  advice, we are dedicated to guiding you towards a secure financial 
+                  future.
+                `}
+              />
+
               <Grid
                 container
                 spacing={2}
-                style={{ marginTop: '50px', marginBottom: '100px' }}
+                style={{
+                  marginTop: '50px',
+                  marginBottom: '100px',
+                  textAlign: 'center',
+                }}
               >
-                <Grid item xs={7}>
-                  <p
-                    className={`${anton.className}`}
-                    style={{
-                      fontSize: '35px',
-                      lineHeight: '60px',
-                      marginBottom: '10px',
-                      marginTop: 13,
-                    }}
-                  >
-                    About Me
-                  </p>
-                  <Text
-                    str={`My name is Victoria Alden and I specialize in helping individuals manage 
-                      their financial risks, ensuring they are prepared 
-                      for any uncertainties that life may bring. With a focus on 
-                      creating secure and steady income streams, I aim to provide 
-                      peace of mind and financial stability for my clients.
-                      Whether it's through strategic planning or personalized 
-                      advice, I am dedicated to guiding you towards a secure financial 
-                      future.
-                    `}
-                  />
+                <Grid item xs={6}>
+                  <ImageSquare source="/headshot-bri-square-1.png" />
                   <Button
-                    handleOpenCalendar={handleOpenCalendar}
-                    label="WORK WITH ME"
-                    marginTop="20px"
+                    handleOpenCalendar={handleOpenBriCalendar}
+                    label="WORK WITH BRIAN"
+                    styles={{ marginTop: '20px', width: '355px' }}
                   />
                 </Grid>
-                <Grid item xs={5}>
-                  <Image
-                    src="/headshot-victoria-square.png"
-                    alt="family"
-                    width={500}
-                    height={400}
-                    priority
-                    style={{ margin: 'auto', marginTop: '10px' }}
+                <Grid item xs={6}>
+                  <ImageSquare source="/headshot-victoria-square.png" />
+                  <Button
+                    handleOpenCalendar={handleOpenVicCalendar}
+                    label="WORK WITH VICTORIA"
+                    styles={{ marginTop: '20px', width: '355px' }}
                   />
                 </Grid>
               </Grid>
