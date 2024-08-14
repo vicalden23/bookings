@@ -93,7 +93,11 @@ export default function HomeMobile({
         width={200}
         height={400}
         priority
-        style={{ margin: 'auto', marginTop: '10px' }}
+        style={{
+          margin: 'auto',
+          borderRadius: 5,
+          marginTop: 15,
+        }}
       />
     </Container>
   );

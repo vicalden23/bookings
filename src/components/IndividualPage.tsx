@@ -1,6 +1,5 @@
 import Image from 'next/image';
 import Grid from '@mui/material/Grid';
-import { Container } from '@mui/material';
 import { Oswald, Anton, Playfair_Display } from 'next/font/google';
 
 const oswald = Oswald({ subsets: ['latin'] });
